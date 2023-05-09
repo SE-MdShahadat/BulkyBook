@@ -27,8 +27,15 @@
                         <li class="nav-item">
                             <a class="nav-link " asp-area="" asp-controller="Category" asp-action="Index">Category</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Category" asp-action="Typesense">Typesense</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Typesense</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="TypesenseConnectionTest">Server Test</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="TypesenseGetCollection">List of Collections</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="TypesenseCreateCollection">Create Collection</a>
+                               
+                            </div>
                         </li>
                         @*
                         <li class="nav-item dropdown">

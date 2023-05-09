@@ -1,6 +1,8 @@
 ﻿using BulkyBookWeb.Data;
 using BulkyBookWeb.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Text;
+using Typesense;
 
 namespace BulkyBookWeb.Controllers
 {
@@ -97,10 +99,11 @@ namespace BulkyBookWeb.Controllers
             return RedirectToAction("Index");
         }
 
-        //Health Test Of Typesense Server
-        public async Task<IActionResult> Typesense()
-        {
+        //Typesense
 
+        ////Connection test to local host
+        public async Task<IActionResult> TypesenseConnectionTest()
+        {
             using var client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:8108/");
 
@@ -116,9 +119,75 @@ namespace BulkyBookWeb.Controllers
             {
                 return BadRequest(e.Message);
             }
+        }
+        ////Create Demo Collection server
+        public async Task<IActionResult> TypesenseCreateCollection()
+        {
+            
+            string collectionSchema = @"{
+              ""name"": ""Books_03"",
+              ""fields"": [
+                {""name"": ""id_03"", ""type"": ""string"", ""facet"": false},
+                {""name"": ""title_03"", ""type"": ""string"", ""facet"": false},
+                {""name"": ""author_03"", ""type"": ""string"", ""facet"": true},
+                {""name"": ""publication_date_03"", ""type"": ""int64"", ""facet"": true},
+                {""name"": ""genres_03"", ""type"": ""string[]"", ""facet"": true}
+              ],
+              ""default_sorting_field"": ""publication_date_03"",
+              ""default_sorting_order"": ""desc""
+            }";
+            HttpClient httpClient = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost:8108/collections");
+            request.Content = new StringContent(collectionSchema, Encoding.UTF8, "application/json");
+            request.Headers.Add("X-TYPESENSE-API-KEY", "xyz");
 
-            //return View();
+            var response = await httpClient.SendAsync(request);
+            return Json(response);
+
 
         }
+        ////Create Demo Collection server
+        public async Task<IActionResult> TypesenseGetCollection()
+        {
+
+            HttpClient httpClient = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:8108/collections");
+            request.Headers.Add("X-TYPESENSE-API-KEY", "xyz");
+
+            var response = await httpClient.SendAsync(request);
+            var content="";
+            if (response.IsSuccessStatusCode)
+            {
+                 content = await response.Content.ReadAsStringAsync();
+                //Console.WriteLine(content); // Or do something else with the list of collections
+            }
+            else
+            {
+                // Handle failed response here
+            }
+            return Json(content);
+
+
+        }
+
+        ////Try by typesense client
+        //public async Task<IActionResult> CreateTypesenseCollection(ITypesenseClient typesenseClient)
+        //{
+
+        //    var schema = new Schema(
+        //    "Addresses",
+        //    new List<Field>
+        //    {
+        //        new Field("id", FieldType.Int32, false),
+        //        new Field("houseNumber", FieldType.Int32, false),
+        //        new Field("accessAddress", FieldType.String, false, true),
+        //        new Field("metadataNotes", FieldType.String, false, true, false),
+        //    },
+        //    "houseNumber");
+
+        //    var createCollectionResult = await typesenseClient.CreateCollection(schema);
+        //    return Ok(createCollectionResult);
+
+        //}
     }
 }

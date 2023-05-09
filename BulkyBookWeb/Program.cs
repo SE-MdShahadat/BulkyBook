@@ -1,5 +1,7 @@
 using BulkyBookWeb.Data;
 using Microsoft.EntityFrameworkCore;
+using Typesense;
+using Typesense.Setup;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,19 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
     builder.Configuration.GetConnectionString("DefaultConnection")
     ));
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+
+////Typesense Start
+//var provider = new ServiceCollection()
+//    .AddTypesenseClient(config =>
+//    {
+//        config.ApiKey = "xyz";
+//        config.Nodes = new List<Node>
+//        {
+//            new Node("localhost", "8108", "http")
+//        };
+//    }).BuildServiceProvider();
+//var typesenseClient = provider.GetService<ITypesenseClient>();
+////Typesense End
 
 var app = builder.Build();
 
