@@ -96,5 +96,29 @@ namespace BulkyBookWeb.Controllers
             TempData["success"] = "Category deleted successfully";
             return RedirectToAction("Index");
         }
+
+        //Health Test Of Typesense Server
+        public async Task<IActionResult> Typesense()
+        {
+
+            using var client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:8108/");
+
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync("health");
+                response.EnsureSuccessStatusCode(); // Throw an exception if not successful
+                string responseBody = await response.Content.ReadAsStringAsync();
+                //Console.WriteLine(responseBody);
+                return Ok(responseBody);
+            }
+            catch (HttpRequestException e)
+            {
+                return BadRequest(e.Message);
+            }
+
+            //return View();
+
+        }
     }
 }
