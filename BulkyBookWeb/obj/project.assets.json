@@ -10062,23 +10062,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Shahadat\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\MIS-AM-SHAHADAT\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Shahadat\\Desktop\\freeCodeCamp\\BulkyBook\\BulkyBookWeb\\BulkyBookWeb.csproj",
+      "projectUniqueName": "C:\\Users\\MIS-AM-SHAHADAT\\Desktop\\Workshop\\BulkyBook\\BulkyBookWeb\\BulkyBookWeb.csproj",
       "projectName": "BulkyBookWeb",
-      "projectPath": "C:\\Users\\Shahadat\\Desktop\\freeCodeCamp\\BulkyBook\\BulkyBookWeb\\BulkyBookWeb.csproj",
-      "packagesPath": "C:\\Users\\Shahadat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Shahadat\\Desktop\\freeCodeCamp\\BulkyBook\\BulkyBookWeb\\obj\\",
+      "projectPath": "C:\\Users\\MIS-AM-SHAHADAT\\Desktop\\Workshop\\BulkyBook\\BulkyBookWeb\\BulkyBookWeb.csproj",
+      "packagesPath": "C:\\Users\\MIS-AM-SHAHADAT\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MIS-AM-SHAHADAT\\Desktop\\Workshop\\BulkyBook\\BulkyBookWeb\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Shahadat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MIS-AM-SHAHADAT\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10146,7 +10142,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
