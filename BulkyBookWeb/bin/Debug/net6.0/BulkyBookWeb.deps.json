@@ -39,6 +39,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.11",
+          "Typesense": "6.4.0",
           "Microsoft.AspNetCore.Antiforgery": "6.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "6.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "6.0.0.0",
@@ -145,7 +146,7 @@
           "Microsoft.Extensions.FileSystemGlobbing": "6.0.0.0",
           "Microsoft.Extensions.Hosting.Abstractions": "6.0.0.0",
           "Microsoft.Extensions.Hosting": "6.0.0.0",
-          "Microsoft.Extensions.Http": "6.0.0.0",
+          "Microsoft.Extensions.Http.Reference": "6.0.0.0",
           "Microsoft.Extensions.Identity.Core": "6.0.0.0",
           "Microsoft.Extensions.Identity.Stores": "6.0.0.0",
           "Microsoft.Extensions.Localization.Abstractions": "6.0.0.0",
@@ -1413,6 +1414,14 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Http/6.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Logging": "6.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
         }
       },
       "Microsoft.Extensions.Logging/6.0.0": {
@@ -2792,6 +2801,22 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "Typesense/6.4.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "6.0.0",
+          "Microsoft.Extensions.Http": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Typesense.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/net6.0/Typesense.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Antiforgery/6.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Antiforgery.dll": {}
@@ -3428,7 +3453,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Http/6.0.0.0": {
+      "Microsoft.Extensions.Http.Reference/6.0.0.0": {
         "compile": {
           "Microsoft.Extensions.Http.dll": {}
         },
@@ -4829,6 +4854,13 @@
       "path": "microsoft.extensions.dependencymodel/6.0.0",
       "hashPath": "microsoft.extensions.dependencymodel.6.0.0.nupkg.sha512"
     },
+    "Microsoft.Extensions.Http/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-15+pa2G0bAMHbHewaQIdr/y6ag2H3yh4rd9hTXavtWDzQBkvpe2RMqFg8BxDpcQWssmjmBApGPcw93QRz6YcMg==",
+      "path": "microsoft.extensions.http/6.0.0",
+      "hashPath": "microsoft.extensions.http.6.0.0.nupkg.sha512"
+    },
     "Microsoft.Extensions.Logging/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -5753,6 +5785,13 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
+    "Typesense/6.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BTCSohs9Q79qxMlJdqHajivkiyEY++m1PkX2Syc3O/wR5J/WanAGDzRVVtU7R5+OMuD7IghhnxRK8GCthScEpw==",
+      "path": "typesense/6.4.0",
+      "hashPath": "typesense.6.4.0.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Antiforgery/6.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
@@ -6283,7 +6322,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Http/6.0.0.0": {
+    "Microsoft.Extensions.Http.Reference/6.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

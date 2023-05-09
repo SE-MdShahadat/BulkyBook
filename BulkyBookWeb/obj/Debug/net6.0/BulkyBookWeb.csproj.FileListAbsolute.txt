@@ -1118,3 +1118,4 @@ C:\Users\MIS-AM-SHAHADAT\Desktop\Workshop\BulkyBook\BulkyBookWeb\obj\Debug\net6.
 C:\Users\MIS-AM-SHAHADAT\Desktop\Workshop\BulkyBook\BulkyBookWeb\obj\Debug\net6.0\BulkyBookWeb.pdb
 C:\Users\MIS-AM-SHAHADAT\Desktop\Workshop\BulkyBook\BulkyBookWeb\obj\Debug\net6.0\BulkyBookWeb.genruntimeconfig.cache
 C:\Users\MIS-AM-SHAHADAT\Desktop\Workshop\BulkyBook\BulkyBookWeb\obj\Debug\net6.0\ref\BulkyBookWeb.dll
+C:\Users\MIS-AM-SHAHADAT\Desktop\Workshop\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Typesense.dll

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4wKwFsxn106D8OdrzY3elV8/o/LeVpp4Tu456JMSKguM+S7ItDN3VZQlitt6o9xB4Qa3vZcvA7W1sdsIjHsNiQ==",
+  "dgSpecHash": "R8G6NT4aDySmRP9tPpL3sIUoASCZMylmx+3cU8tdh+oh2fQbw8ey/BHCCKKrfzIxXU9m6feVYGkQf9fwHQBWKA==",
   "success": true,
   "projectFilePath": "C:\\Users\\MIS-AM-SHAHADAT\\Desktop\\Workshop\\BulkyBook\\BulkyBookWeb\\BulkyBookWeb.csproj",
   "expectedPackageFiles": [
@@ -47,6 +47,7 @@
     "C:\\Users\\MIS-AM-SHAHADAT\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
     "C:\\Users\\MIS-AM-SHAHADAT\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\MIS-AM-SHAHADAT\\.nuget\\packages\\microsoft.extensions.dependencymodel\\6.0.0\\microsoft.extensions.dependencymodel.6.0.0.nupkg.sha512",
+    "C:\\Users\\MIS-AM-SHAHADAT\\.nuget\\packages\\microsoft.extensions.http\\6.0.0\\microsoft.extensions.http.6.0.0.nupkg.sha512",
     "C:\\Users\\MIS-AM-SHAHADAT\\.nuget\\packages\\microsoft.extensions.logging\\6.0.0\\microsoft.extensions.logging.6.0.0.nupkg.sha512",
     "C:\\Users\\MIS-AM-SHAHADAT\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\MIS-AM-SHAHADAT\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
@@ -178,7 +179,8 @@
     "C:\\Users\\MIS-AM-SHAHADAT\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\MIS-AM-SHAHADAT\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\MIS-AM-SHAHADAT\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\MIS-AM-SHAHADAT\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\MIS-AM-SHAHADAT\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\MIS-AM-SHAHADAT\\.nuget\\packages\\typesense\\6.4.0\\typesense.6.4.0.nupkg.sha512"
   ],
   "logs": []
 }
