@@ -1,7 +1,10 @@
 ﻿using BulkyBookWeb.Data;
 using BulkyBookWeb.Models;
+using BulkyBookWeb.Models.TypesenseModel;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Text;
+using System.Text.Json.Nodes;
 using Typesense;
 
 namespace BulkyBookWeb.Controllers
@@ -121,31 +124,31 @@ namespace BulkyBookWeb.Controllers
             }
         }
         ////Create Demo Collection server
-        public async Task<IActionResult> TypesenseCreateCollection()
-        {
+        //public async Task<IActionResult> TypesenseCreateCollection()
+        //{
             
-            string collectionSchema = @"{
-              ""name"": ""Books_03"",
-              ""fields"": [
-                {""name"": ""id_03"", ""type"": ""string"", ""facet"": false},
-                {""name"": ""title_03"", ""type"": ""string"", ""facet"": false},
-                {""name"": ""author_03"", ""type"": ""string"", ""facet"": true},
-                {""name"": ""publication_date_03"", ""type"": ""int64"", ""facet"": true},
-                {""name"": ""genres_03"", ""type"": ""string[]"", ""facet"": true}
-              ],
-              ""default_sorting_field"": ""publication_date_03"",
-              ""default_sorting_order"": ""desc""
-            }";
-            HttpClient httpClient = new HttpClient();
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost:8108/collections");
-            request.Content = new StringContent(collectionSchema, Encoding.UTF8, "application/json");
-            request.Headers.Add("X-TYPESENSE-API-KEY", "xyz");
+        //    string collectionSchema = @"{
+        //      ""name"": ""Books_03"",
+        //      ""fields"": [
+        //        {""name"": ""id_03"", ""type"": ""string"", ""facet"": false},
+        //        {""name"": ""title_03"", ""type"": ""string"", ""facet"": false},
+        //        {""name"": ""author_03"", ""type"": ""string"", ""facet"": true},
+        //        {""name"": ""publication_date_03"", ""type"": ""int64"", ""facet"": true},
+        //        {""name"": ""genres_03"", ""type"": ""string[]"", ""facet"": true}
+        //      ],
+        //      ""default_sorting_field"": ""publication_date_03"",
+        //      ""default_sorting_order"": ""desc""
+        //    }";
+        //    HttpClient httpClient = new HttpClient();
+        //    var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost:8108/collections");
+        //    request.Content = new StringContent(collectionSchema, Encoding.UTF8, "application/json");
+        //    request.Headers.Add("X-TYPESENSE-API-KEY", "xyz");
 
-            var response = await httpClient.SendAsync(request);
-            return Json(response);
+        //    var response = await httpClient.SendAsync(request);
+        //    return Json(response);
 
 
-        }
+        //}
         ////Create Demo Collection server
         public async Task<IActionResult> TypesenseGetCollection()
         {
@@ -168,6 +171,52 @@ namespace BulkyBookWeb.Controllers
             return Json(content);
 
 
+        }
+
+        ////Create Demo Collection From Model list
+        public async Task<IActionResult> TypesenseCreateCollection()
+        {
+
+
+            IEnumerable<Category> objCategoryList = _db.Categories;
+            string schema = GetCollectionSchema(objCategoryList, "categoryName").ToString();
+            //string json = JsonConvert.SerializeObject(schema);
+            HttpClient httpClient = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost:8108/collections");
+            request.Content = new StringContent(schema, Encoding.UTF8, "application/json");
+            request.Headers.Add("X-TYPESENSE-API-KEY", "xyz");
+            var response = await httpClient.SendAsync(request);
+            return Json(response);
+
+
+        }
+
+        public static CollectionSchema GetCollectionSchema<T>(IEnumerable<T> models, string collectionName)
+        {
+            var properties = typeof(T).GetProperties();
+            var fields = new List<FieldSchema>();
+
+            foreach (var prop in properties)
+            {
+                var type = prop.PropertyType.Name.ToLower();
+
+                if (type == "int32")
+                {
+                    type = "int";
+                }
+
+                fields.Add(new FieldSchema
+                {
+                    Name = prop.Name,
+                    Type = type
+                });
+            }
+
+            return new CollectionSchema
+            {
+                Name = collectionName,
+                Fields = fields
+            };
         }
 
         ////Try by typesense client
