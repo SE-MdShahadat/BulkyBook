@@ -31,10 +31,23 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Typesense</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="TypesenseConnectionTest">Server Test</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="TypesenseGetCollection">List of Collections</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="TypesenseCreateCollection">Create Collection</a>
-                               
+                                <a class="dropdown-item" asp-area="" asp-controller="TypesenseCollection" asp-action="ConnectionTestWithServer">Server Connection Test</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Collection</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-area="" asp-controller="TypesenseCollection" asp-action="GetCollection">List of Collection</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="TypesenseCollection" asp-action="CreateCollection">Create Collection (static data)</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="TypesenseCollection" asp-action="CreateCollectionByModel">Create Collection (by model)</a>
+
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Document</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-area="" asp-controller="TypesenseCollection" asp-action="SearchDocument">Search Documents</a>
+
                             </div>
                         </li>
                         @*
