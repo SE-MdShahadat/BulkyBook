@@ -61,14 +61,13 @@ namespace BulkyBookWeb.Controllers
             string collectionSchema = @"{
               ""name"": ""Books1"",
               ""fields"": [
-                {""name"": ""id"", ""type"": ""string"", ""facet"": false},
+                {""name"": ""id"", ""type"": ""int32"", ""facet"": false},
                 {""name"": ""title"", ""type"": ""string"", ""facet"": false},
-                {""name"": ""title2"", ""type"": ""string"", ""facet"": false},
-                {""name"": ""author"", ""type"": ""string"", ""facet"": true},
+                {""name"": ""author"", ""type"": ""int32"", ""facet"": true},
                 {""name"": ""publication_date"", ""type"": ""int64"", ""facet"": true},
                 {""name"": ""genres"", ""type"": ""string[]"", ""facet"": true}
               ],
-              ""default_sorting_field"": ""publication_date"",
+              ""default_sorting_field"": ""author"",
               ""default_sorting_order"": ""desc""
             }";
             HttpClient httpClient = new HttpClient();

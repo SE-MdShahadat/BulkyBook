@@ -63,7 +63,7 @@
                         </li>*@
                     </ul>
                     <form class="d-flex">
-                        <input class="form-control me-sm-2" type="search" placeholder="Search">
+                        <input class="form-control me-sm-2" type="search" id="search-box" placeholder="Search">
                         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </div>
@@ -89,3 +89,50 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+<script>
+    $(document).ready(function () {
+        var searchResults = $('#search-results');
+
+        // Hide popup initially
+        searchResults.hide();
+        // Trigger search request on keyup event
+        $('#search-box').on('keyup', function () {
+            var query = $(this).val();
+            if(query==''){
+                console.log("Nothing found");
+            }
+            else{
+                // Send search request to server
+                $.ajax({
+                    url: 'http://localhost:8108/collections/Product/documents/search?query_by=name',
+                    type: 'GET',
+                    data: { q: query },
+                    headers: {
+                        'X-TYPESENSE-API-KEY': 'xyz'
+                    },
+                    success: function (data) {
+                        if(data.found > 0){
+                            console.clear();
+                            $.each(data.hits, function (index, document) {
+                                console.log(document);
+                            });
+                        }
+                        else{
+                            console.log("Nothing found");
+                        }
+                       
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle error
+                        console.log(error);
+                    }
+                });
+
+            }
+            
+        });
+    });
+    function ShowSearchResult(data){
+        
+    }
+</script>
