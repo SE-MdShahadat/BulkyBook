@@ -66,6 +66,7 @@
                         <input class="form-control me-sm-2" type="search" id="search-box" placeholder="Search">
                         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
                     </form>
+                    <ul id="results"></ul>
                 </div>
             </div>
         </nav>
@@ -114,14 +115,19 @@
                     success: function (data) {
                         if(data.found > 0){
                             console.clear();
-                            $.each(data.hits, function (index, document) {
+                            $.each(data.hits, function (index, hit) {
+                                var document = hit.document;
                                 console.log(document);
+
                             });
+                            $('#results').empty();
+                            renderResults(data);
                         }
                         else{
                             console.log("Nothing found");
+                            $('#results').empty();
+                            $('#results').append("Nothing found");
                         }
-                       
                     },
                     error: function (xhr, status, error) {
                         // Handle error
@@ -133,7 +139,13 @@
             
         });
     });
-    function ShowSearchResult(data){
-        
+    // function to render search results
+    function renderResults(data) {
+        $('#results').empty();
+        $.each(data.hits, function (index, hit) {
+            var document = hit.document;
+            var listItem = $('<li>').text("Item: "+document.name + " Made by: " + document.madeBy+ " Price: " + document.price);
+                $('#results').append(listItem);
+        });
     }
 </script>
